@@ -68,11 +68,6 @@ async function fetchNews() {
 
         helpers.logSuccess(`Fetched ${articles.length} news articles`);
         
-        // Log article titles (helpful for debugging)
-        articles.forEach((article, index) => {
-            console.log(`   ${index + 1}. ${article.title}`);
-        });
-        
         return articles;
         
     } catch (error) {
@@ -159,7 +154,6 @@ async function generateScript(articles) {
 
         // Log a preview of the script
         helpers.logSuccess('Podcast script generated');
-        console.log(`   Script length: ${script.length} characters`);
 
         // TODO: Save the script to a file
         // HINT: Use helpers.saveTextFile(script, 'podcast-script.txt')
@@ -273,11 +267,7 @@ async function generateAudio(text) {
  * 6. Provide clear progress updates
  * 7. Return a summary of what was done
  */
-async function generatePodcast() {
-    console.log('\n' + '='.repeat(60));
-    console.log('🎙️  AI PODCAST GENERATOR');
-    console.log('='.repeat(60));
-    
+async function generatePodcast() {    
     try {
         // TODO: Validate environment variables
         // HINT: Use helpers.validateEnvironmentVariables() with array of required vars
@@ -320,17 +310,6 @@ async function generatePodcast() {
         if (!audioFilePath) {
             throw new Error('No audio file generated');
         }
-        
-        // Print final summary
-        console.log('\n' + '='.repeat(60));
-        console.log('🎉 PODCAST GENERATION COMPLETE!');
-        console.log('='.repeat(60));
-        console.log(`✅ News articles fetched: ${articles.length}`);
-        console.log(`✅ Script generated: ${script.length} characters`);
-        console.log(`✅ Audio file created: ${audioFilePath}`);
-        console.log('\n📁 Check the /output folder for your files!');
-        console.log('🎧 Listen to your AI-generated podcast!');
-        console.log('='.repeat(60) + '\n');
         
         return {
             success: true,
