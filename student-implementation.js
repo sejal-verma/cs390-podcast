@@ -157,6 +157,7 @@ async function generateScript(articles) {
         // HINT: response.data.choices[0].message.content
         const script = response.data.choices[0].message.content;
 
+        // Log a preview of the script
         helpers.logSuccess('Podcast script generated');
         console.log(`   Script length: ${script.length} characters`);
 
